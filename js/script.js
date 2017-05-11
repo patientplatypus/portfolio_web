@@ -10,23 +10,36 @@ $( document ).ready(function() {
 
     $(".portfolio-button h4").click(function(e){
         e.preventDefault();
-        $("html, body").animate({
-            scrollTop: $("#portfolio").offset().top
-        }, 2000);
+        // $("html, body").animate({
+        //     scrollTop: $("#portfolio").offset().top
+        // }, 2000);
+
+        $("#portfolio").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
+
+
+
     });
 
     $(".contact-button h4").click(function(e){
         e.preventDefault();
-        $("html, body").animate({
-            scrollTop: $("#contact").offset().top
-        }, 2000);
+        // $("html, body").animate({
+        //     scrollTop: $("#contact").offset().top
+        // }, 2000);
+
+        $("#contact").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
+
     });
 
     $(".about-button h4").click(function(e){
         e.preventDefault();
-        $("html, body").animate({
-            scrollTop: $("#about").offset().top
-        }, 2000);
+        // $("html, body").animate({
+        //     scrollTop: $("#about").offset().top
+        // }, 2000);
+
+
+        $("#about").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
+
+
     });
 
     var gMap = new GMaps({
@@ -36,6 +49,251 @@ $( document ).ready(function() {
       zoom: 3,
       scrollwheel: false
     });
+
+
+
+    $(".skill1button").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var $skillbox = $('.boxforskills');
+
+        var $skilldiv1 = $('.skilldiv1');
+        var $skilldiv2 = $('.skilldiv1');
+        var $skilldiv3= $('.skilldiv1');
+        var $skilldiv4 = $('.skilldiv1');
+
+        // .boxforskills{
+        //   padding: 30px 0;
+        //   position: relative;
+        // }
+
+        $skillbox.css("padding", "30px 0");
+        $skillbox.css("position", "relative");
+
+        $skilldiv1.css("margin", "0 auto");
+        $skilldiv1.css("position", "absolute");
+        $skilldiv1.css("top", "0");
+        $skilldiv1.css("left", "0");
+        $skilldiv1.css("padding", "10px 0");
+
+        $skilldiv2.css("margin", "0 auto");
+        $skilldiv2.css("position", "absolute");
+        $skilldiv2.css("top", "0");
+        $skilldiv2.css("left", "0");
+        $skilldiv2.css("padding", "10px 0");
+
+        $skilldiv3.css("margin", "0 auto");
+        $skilldiv3.css("position", "absolute");
+        $skilldiv3.css("top", "0");
+        $skilldiv3.css("left", "0");
+        $skilldiv3.css("padding", "10px 0");
+
+        $skilldiv4.css("margin", "0 auto");
+        $skilldiv4.css("position", "absolute");
+        $skilldiv4.css("top", "0");
+        $skilldiv4.css("left", "0");
+        $skilldiv4.css("padding", "10px 0");
+
+        $skilldiv4.css("backgroundColor", "orange");
+
+
+        $skilldiv1.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
+                       .velocity({paddingLeft: "5%", width: "100%", height: "300px", opacity: 1});
+
+
+    });
+
+    $(".skill2button").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        var $skillbox = $('.boxforskills');
+        var $skilldiv1 = $('.skilldiv1');
+        var $skilldiv2 = $('.skilldiv1');
+        var $skilldiv3= $('.skilldiv1');
+        var $skilldiv4 = $('.skilldiv1');
+
+
+        $skillbox.css("padding", "30px 0");
+        $skillbox.css("position", "relative");
+
+        $skilldiv1.css("margin", "0 auto");
+        $skilldiv1.css("position", "absolute");
+        $skilldiv1.css("top", "0");
+        $skilldiv1.css("left", "0");
+        $skilldiv1.css("padding", "10px 0");
+
+        $skilldiv2.css("margin", "0 auto");
+        $skilldiv2.css("position", "absolute");
+        $skilldiv2.css("top", "0");
+        $skilldiv2.css("left", "0");
+        $skilldiv2.css("padding", "10px 0");
+
+        $skilldiv3.css("margin", "0 auto");
+        $skilldiv3.css("position", "absolute");
+        $skilldiv3.css("top", "0");
+        $skilldiv3.css("left", "0");
+        $skilldiv3.css("padding", "10px 0");
+
+        $skilldiv4.css("margin", "0 auto");
+        $skilldiv4.css("position", "absolute");
+        $skilldiv4.css("top", "0");
+        $skilldiv4.css("left", "0");
+        $skilldiv4.css("padding", "10px 0");
+
+        $skilldiv2.css("backgroundColor", "red");
+
+        $skilldiv2.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
+                       .velocity({width: "100%", height: "300px", opacity: 1});
+
+
+    });
+
+    $(".skill3button").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var $skillbox = $('.boxforskills');
+        var $skilldiv1 = $('.skilldiv1');
+        var $skilldiv2 = $('.skilldiv1');
+        var $skilldiv3= $('.skilldiv1');
+        var $skilldiv4 = $('.skilldiv1');
+
+
+        $skillbox.css("padding", "30px 0");
+        $skillbox.css("position", "relative");
+
+
+        $skilldiv1.css("margin", "0 auto");
+        $skilldiv1.css("position", "absolute");
+        $skilldiv1.css("top", "0");
+        $skilldiv1.css("left", "0");
+        $skilldiv1.css("padding", "10px 0");
+
+        $skilldiv2.css("margin", "0 auto");
+        $skilldiv2.css("position", "absolute");
+        $skilldiv2.css("top", "0");
+        $skilldiv2.css("left", "0");
+        $skilldiv2.css("padding", "10px 0");
+
+        $skilldiv3.css("margin", "0 auto");
+        $skilldiv3.css("position", "absolute");
+        $skilldiv3.css("top", "0");
+        $skilldiv3.css("left", "0");
+        $skilldiv3.css("padding", "10px 0");
+
+        $skilldiv4.css("margin", "0 auto");
+        $skilldiv4.css("position", "absolute");
+        $skilldiv4.css("top", "0");
+        $skilldiv4.css("left", "0");
+        $skilldiv4.css("padding", "10px 0");
+
+        $skilldiv4.css("backgroundColor", "blue");
+
+        $skilldiv3.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
+                       .velocity({width: "100%", height: "300px", opacity: 1});
+
+
+    });
+
+    $(".skill4button").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var $skillbox = $('.boxforskills');
+        var $skilldiv1 = $('.skilldiv1');
+        var $skilldiv2 = $('.skilldiv1');
+        var $skilldiv3= $('.skilldiv1');
+        var $skilldiv4 = $('.skilldiv1');
+
+
+        $skillbox.css("padding", "30px 0");
+        $skillbox.css("position", "relative");
+
+        $skilldiv1.css("margin", "0 auto");
+        $skilldiv1.css("position", "absolute");
+        $skilldiv1.css("top", "0");
+        $skilldiv1.css("left", "0");
+        $skilldiv1.css("padding", "10px 0");
+
+        $skilldiv2.css("margin", "0 auto");
+        $skilldiv2.css("position", "absolute");
+        $skilldiv2.css("top", "0");
+        $skilldiv2.css("left", "0");
+        $skilldiv2.css("padding", "10px 0");
+
+        $skilldiv3.css("margin", "0 auto");
+        $skilldiv3.css("position", "absolute");
+        $skilldiv3.css("top", "0");
+        $skilldiv3.css("left", "0");
+        $skilldiv3.css("padding", "10px 0");
+
+        $skilldiv4.css("margin", "0 auto");
+        $skilldiv4.css("position", "absolute");
+        $skilldiv4.css("top", "0");
+        $skilldiv4.css("left", "0");
+        $skilldiv4.css("padding", "10px 0");
+
+        $skilldiv4.css("backgroundColor", "green");
+
+        $skilldiv4.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
+                       .velocity({width: "100%", height: "300px", opacity: 1});
+
+
+    });
+
+
+
+
+
+    // var mySequence = [
+    //   {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "320px"}, o:{duration: 1500}},
+    //   {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
+    //   {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
+    //   {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}}
+    // ];
+    //
+    // $.Velocity.RunSequence(mySequence);
+    $(".headerbutton").on("click", function(){
+
+
+      var $fadeIn1 = $('.fadeIn1');
+      var $fadeIn2 = $('.fadeIn2');
+      var $fadeIn3 = $('.fadeIn3');
+
+      var $fadeIn1text = $('.fadeIn1text');
+      var $fadeIn2text = $('.fadeIn2text');
+      var $fadeIn3text = $('.fadeIn3text');
+
+      $fadeIn1.css("height", "0px");
+      $fadeIn1.css("width", "0px");
+      $fadeIn1.css("top", "450px");
+
+
+      $fadeIn2.css("height", "100px");
+      $fadeIn2.css("width", "100px");
+      $fadeIn2.css("top", "480px");
+      $fadeIn2.css("left", "3%");
+      $fadeIn2.css("background-color", "orange")
+
+      $fadeIn3.css("height", "100px");
+      $fadeIn3.css("width", "100px");
+      $fadeIn3.css("top", "480px");
+      $fadeIn3.css("left", "30%");
+      $fadeIn3.css("background-color", "red");
+
+      $fadeIn2text.css("opacity", "0");
+
+      var mySequence = [
+        {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "320px"}, o:{duration: 1500}},
+        {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
+        {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
+        {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}}
+      ];
+
+      $.Velocity.RunSequence(mySequence);
+
+    })
+
+
 
 
     gMap.addMarker({
@@ -200,96 +458,7 @@ $( document ).ready(function() {
   // ];
   // $.Velocity.RunSequence(mySequence);
 
-    $(".headerbutton").on("click", function(){
-      // $(".fadeIn1").animate({
-      //       left: '50%',
-      //       opacity: '0.5',
-      //       height: '150px',
-      //       width: '150px'
-      //   },1200);
 
-      //  easing: "ease-in-out"
-        //
-        // $.Velocity
-        //     .RegisterEffect("trans.slideUpIn", {
-        //         defaultDuration: 400,
-        //         calls: [[ { opacity: [1,0], translateY: [0,90] } ]]
-        //     })
-        //     .RegisterEffect("trans.slideDownOut", {
-        //         defaultDuration: 400,
-        //         calls: [[ { opacity: 0, translateY: 60 } ]],
-        //         reset: { translateY: 0 }
-        //     });
-        //     .RegisterEffect("trans.slideLeftIn", {
-        //         defaultDuration: 1000,
-        //         calls: [[ { opacity: [1,0], translateX: 50, width: 200 } ]]
-        //     });
-
-        //
-        // {
-        //   e: $("#about"),
-        //   p: {
-        //     translateX: [0, "-10px"],
-        //     opacity: [1, 0]
-        //   },
-        //   o: {
-        //     duration: 300
-        //   }
-        // }
-        // fadin1text
-
-        var $fadeIn1 = $('.fadeIn1');
-        var $fadeIn2 = $('.fadeIn2');
-        var $fadeIn3 = $('.fadeIn3');
-
-        var $fadeIn1text = $('.fadeIn1text');
-        var $fadeIn2text = $('.fadeIn2text');
-        var $fadeIn3text = $('.fadeIn3text');
-
-      // {e:$fadeIn1, p:{left: "50px", width: "200px"}, o:{duration: 1000, easing: "ease-in-out"}},
-      // {e:$fadeIn1, p:'transition.fadeIn', o:{duration: 400, easing: 'ease-in-out', sequenceQueue: false}}
-      // { elements: $fadeIn1, properties: animLeftIn, options: { display: false, easing: 'easeInCirc' } }
-      //
-      //
-      // height: 100px;
-      // width: 100px;
-      // top: 400px;
-      // left: 500px;
-
-      $fadeIn1.css("height", "0px");
-      $fadeIn1.css("width", "0px");
-      // $fadeIn1.css("top", "360px");
-      // $fadeIn1.css("left", "100px");
-      $fadeIn1.css("top", "450px");
-      // $fadeIn1.css("padding-left", "50px");
-
-
-      $fadeIn2.css("height", "100px");
-      $fadeIn2.css("width", "100px");
-      $fadeIn2.css("top", "480px");
-      $fadeIn2.css("left", "3%");
-      $fadeIn2.css("background-color", "orange")
-
-      $fadeIn3.css("height", "100px");
-      $fadeIn3.css("width", "100px");
-      $fadeIn3.css("top", "480px");
-      $fadeIn3.css("left", "30%");
-      $fadeIn3.css("background-color", "red");
-
-      $fadeIn2text.css("opacity", "0");
-
-      // var animLeftIn = 'trans.slideLeftIn';
-
-      var mySequence = [
-        {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "320px"}, o:{duration: 1500}},
-        {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
-        {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
-        {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}}
-      ];
-
-      $.Velocity.RunSequence(mySequence);
-
-    })
 
 
 });
