@@ -209,10 +209,82 @@ $( document ).ready(function() {
       //   },1200);
 
       //  easing: "ease-in-out"
-      var $fadeIn1 = $('.fadeIn1');
+        //
+        // $.Velocity
+        //     .RegisterEffect("trans.slideUpIn", {
+        //         defaultDuration: 400,
+        //         calls: [[ { opacity: [1,0], translateY: [0,90] } ]]
+        //     })
+        //     .RegisterEffect("trans.slideDownOut", {
+        //         defaultDuration: 400,
+        //         calls: [[ { opacity: 0, translateY: 60 } ]],
+        //         reset: { translateY: 0 }
+        //     });
+        //     .RegisterEffect("trans.slideLeftIn", {
+        //         defaultDuration: 1000,
+        //         calls: [[ { opacity: [1,0], translateX: 50, width: 200 } ]]
+        //     });
+
+        //
+        // {
+        //   e: $("#about"),
+        //   p: {
+        //     translateX: [0, "-10px"],
+        //     opacity: [1, 0]
+        //   },
+        //   o: {
+        //     duration: 300
+        //   }
+        // }
+        // fadin1text
+
+        var $fadeIn1 = $('.fadeIn1');
+        var $fadeIn2 = $('.fadeIn2');
+        var $fadeIn3 = $('.fadeIn3');
+
+        var $fadeIn1text = $('.fadeIn1text');
+        var $fadeIn2text = $('.fadeIn2text');
+        var $fadeIn3text = $('.fadeIn3text');
+
+      // {e:$fadeIn1, p:{left: "50px", width: "200px"}, o:{duration: 1000, easing: "ease-in-out"}},
+      // {e:$fadeIn1, p:'transition.fadeIn', o:{duration: 400, easing: 'ease-in-out', sequenceQueue: false}}
+      // { elements: $fadeIn1, properties: animLeftIn, options: { display: false, easing: 'easeInCirc' } }
+      //
+      //
+      // height: 100px;
+      // width: 100px;
+      // top: 400px;
+      // left: 500px;
+
+      $fadeIn1.css("height", "0px");
+      $fadeIn1.css("width", "0px");
+      // $fadeIn1.css("top", "360px");
+      // $fadeIn1.css("left", "100px");
+      $fadeIn1.css("top", "450px");
+      // $fadeIn1.css("padding-left", "50px");
+
+
+      $fadeIn2.css("height", "100px");
+      $fadeIn2.css("width", "100px");
+      $fadeIn2.css("top", "480px");
+      $fadeIn2.css("left", "3%");
+      $fadeIn2.css("background-color", "orange")
+
+      $fadeIn3.css("height", "100px");
+      $fadeIn3.css("width", "100px");
+      $fadeIn3.css("top", "480px");
+      $fadeIn3.css("left", "30%");
+      $fadeIn3.css("background-color", "red");
+
+      $fadeIn2text.css("opacity", "0");
+
+      // var animLeftIn = 'trans.slideLeftIn';
 
       var mySequence = [
-          {e:$fadeIn1, p:{left: "50px", width: "200px"}, o:{duration: 3000, easing: "ease-in-out"}}
+        {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "320px"}, o:{duration: 1500}},
+        {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
+        {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
+        {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}}
       ];
 
       $.Velocity.RunSequence(mySequence);
