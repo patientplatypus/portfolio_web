@@ -252,7 +252,8 @@ li h4{
 
 .services {
     padding: 50px 0;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .service-item {
@@ -291,10 +292,108 @@ li h4{
     opacity: 0.8;
 }
 
+
+.portfolioitem1info{
+  margin: 0 auto;
+  width: 100%;
+  height: 0px;
+  /*position: absolute;*/
+  background-color: rgb(235,235,235);
+}
+
+.portfolioitem1image{
+  /*position: absolute;*/
+  text-align: center;
+}
+
+.portfolioitem1infosub {
+  /*position: absolute;*/
+  height: 0px;
+  clear: left;
+  width: 0px;
+  opacity: 0;
+  /*margin: 2%;*/
+  float: left;
+  display: inline-block;
+  background-color: red;
+}
+
+.portfolioitem1infosubtext{
+  height: 0px;
+  opacity: 0px;
+  background-color: blue;
+  float: right;
+  position: absolute;
+}
+
+.portfolioitem1infosubtextptag{
+  opacity: 0;
+  font-size: 0px;
+}
+
+
+
+
+
+
+.portfolioitem2info{
+  margin: 0 auto;
+  width: 100%;
+  height: 0px;
+  /*position: absolute;*/
+  background-color: rgb(235,235,235);
+}
+
+.portfolioitem2image{
+  /*position: absolute;*/
+  text-align: center;
+}
+
+.portfolioitem2infosub {
+  /*position: absolute;*/
+  height: 0px;
+  clear: left;
+  width: 0px;
+  opacity: 0;
+  /*margin: 2%;*/
+  float: left;
+  display: inline-block;
+  background-color: red;
+}
+
+.portfolioitem2infosubtext{
+  height: 0px;
+  opacity: 0px;
+  background-color: blue;
+  float: right;
+  position: absolute;
+}
+
+.portfolioitem2infosubtextptag{
+  opacity: 0;
+  font-size: 0px;
+}
+
+
+
+
+
+
+
+
+/*<div class="portfolioitem1infosub portfolioitem1infosub1"></div>
+<div class="portfolioitem1infosub portfolioitem1infosub2"></div>
+<div class="portfolioitem1infosub portfolioitem1infosub3"></div>
+
+<div class="portfolioitem1infosub portfolioitem1infosubtext"></div>*/
+
+
+
+
 /* skill divs*/
 
 .boxforskills{
-  padding: 30px 0;
+  padding: 0;
   position: relative;
   background-color: #333;;
   height: 300px;
@@ -307,6 +406,8 @@ li h4{
     top: 0px;
     left: 0px;
     z-index: 10;
+    margin: 0 auto;
+    /*padding: 10px 0;*/
     text-align: center;
     position: absolute;
 }
@@ -333,6 +434,11 @@ li h4{
     opacity: 0;
     z-index: 20;
     text-align: center;
+}
+
+.skilldiv4container .skilldiv3container .skilldiv2container .skilldiv1container{
+  height: 0px;
+  overflow:auto;
 }
 
 
@@ -546,6 +652,48 @@ input:focus, textarea:focus {
 	background-color: rgba(0,0,0,0);
 	color: #0493bd;
 }
+
+#submittedemail{
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  /*float:left;*/
+  width: 100%;
+  /*border: #fbfbfb solid 4px;*/
+  /*background-color: #70B6E5;*/
+  background-color: white;
+  color:white;
+  font-size:12px;
+  padding-top:22px;
+  padding-bottom:22px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+  border-radius: 3px;
+  padding-left: 17%;
+
+}
+
+#submittedemailinner{
+  width: 80%;
+  float: left;
+  text-align: center;
+  align: center;
+  background-color: #70B6E5;
+  margin: 0 auto;
+  clear: left;
+  height: 3px;
+  opacity: 0.2;
+}
+
+.listcontainer{
+  float:left;
+  align:center;
+  margin: 0 auto;
+  padding-left: 40%;
+  padding-top: 3%;
+}
+
 
 .submit:hover {
 	color: #3498db;

@@ -1,7 +1,4 @@
 
-
-
-
 console.log('sanity check');
 
 
@@ -10,33 +7,20 @@ $( document ).ready(function() {
 
     $(".portfolio-button h4").click(function(e){
         e.preventDefault();
-        // $("html, body").animate({
-        //     scrollTop: $("#portfolio").offset().top
-        // }, 2000);
-
         $("#portfolio").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
 
 
 
     });
 
-    $(".contact-button h4").click(function(e){
+    $(".travel-button h4").click(function(e){
         e.preventDefault();
-        // $("html, body").animate({
-        //     scrollTop: $("#contact").offset().top
-        // }, 2000);
-
-        $("#contact").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
+        $(".traveltop").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
 
     });
 
     $(".about-button h4").click(function(e){
         e.preventDefault();
-        // $("html, body").animate({
-        //     scrollTop: $("#about").offset().top
-        // }, 2000);
-
-
         $("#about").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
 
 
@@ -51,6 +35,23 @@ $( document ).ready(function() {
     });
 
 
+    var message = "";
+    $(".onsubmit").on("click", function() {
+        message1="So there's this guy " + $('form [name="form-name-input"]').val() + " says to me from " + $('form [name="form-email-input"]').val()+
+                      " he says " + $('form [name="form-subject-input"]').val();
+        $.ajax({
+            url: "//formspree.io/pweyand@gmail.com",
+            method: "POST",
+            data: {message: message1},
+            dataType: "json"
+        });
+
+        $submittedemail = $('#submittedemailinner');
+
+        $submittedemail.velocity({height: "120px", opacity:"1"}, {duration: 1000, easing: 'ease-in-out'})
+
+        return false;
+    });
 
     $(".skill1button").click(function(e){
         e.preventDefault();
@@ -58,200 +59,291 @@ $( document ).ready(function() {
         var $skillbox = $('.boxforskills');
 
         var $skilldiv1 = $('.skilldiv1');
-        var $skilldiv2 = $('.skilldiv1');
-        var $skilldiv3= $('.skilldiv1');
-        var $skilldiv4 = $('.skilldiv1');
+        var $skilldiv2 = $('.skilldiv2');
+        var $skilldiv3= $('.skilldiv3');
+        var $skilldiv4 = $('.skilldiv4');
+        var $skilldiv4container = $('.skilldiv4container');
 
-        // .boxforskills{
-        //   padding: 30px 0;
-        //   position: relative;
-        // }
+        $skilldiv4container.css("height", "0px");
 
-        $skillbox.css("padding", "30px 0");
-        $skillbox.css("position", "relative");
+        $skilldiv1.css("z-index", "20");
+        $skilldiv2.css("z-index", "10");
+        $skilldiv3.css("z-index", "10");
+        $skilldiv4.css("z-index", "10");
 
-        $skilldiv1.css("margin", "0 auto");
-        $skilldiv1.css("position", "absolute");
-        $skilldiv1.css("top", "0");
-        $skilldiv1.css("left", "0");
-        $skilldiv1.css("padding", "10px 0");
+        var mySequence = [
+          {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
+          {e:$skilldiv2, p:{height:"0px"}, o:{duration:500}},
+          {e:$skilldiv3, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+          {e:$skilldiv4, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+          {e:$skilldiv1, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}}
+        ];
 
-        $skilldiv2.css("margin", "0 auto");
-        $skilldiv2.css("position", "absolute");
-        $skilldiv2.css("top", "0");
-        $skilldiv2.css("left", "0");
-        $skilldiv2.css("padding", "10px 0");
-
-        $skilldiv3.css("margin", "0 auto");
-        $skilldiv3.css("position", "absolute");
-        $skilldiv3.css("top", "0");
-        $skilldiv3.css("left", "0");
-        $skilldiv3.css("padding", "10px 0");
-
-        $skilldiv4.css("margin", "0 auto");
-        $skilldiv4.css("position", "absolute");
-        $skilldiv4.css("top", "0");
-        $skilldiv4.css("left", "0");
-        $skilldiv4.css("padding", "10px 0");
-
-        $skilldiv4.css("backgroundColor", "orange");
-
-
-        $skilldiv1.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
-                       .velocity({paddingLeft: "5%", width: "100%", height: "300px", opacity: 1});
-
+        $.Velocity.RunSequence(mySequence);
 
     });
 
     $(".skill2button").click(function(e){
-        e.preventDefault();
-        e.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
+      var $skillbox = $('.boxforskills');
 
-        var $skillbox = $('.boxforskills');
-        var $skilldiv1 = $('.skilldiv1');
-        var $skilldiv2 = $('.skilldiv1');
-        var $skilldiv3= $('.skilldiv1');
-        var $skilldiv4 = $('.skilldiv1');
+      var $skilldiv1 = $('.skilldiv1');
+      var $skilldiv2 = $('.skilldiv2');
+      var $skilldiv3= $('.skilldiv3');
+      var $skilldiv4 = $('.skilldiv4');
+      var $skilldiv4container = $('.skilldiv4container');
 
+      $skilldiv4container.css("height", "0px");
 
-        $skillbox.css("padding", "30px 0");
-        $skillbox.css("position", "relative");
+      $skilldiv1.css("z-index", "10");
+      $skilldiv2.css("z-index", "20");
+      $skilldiv3.css("z-index", "10");
+      $skilldiv4.css("z-index", "10");
 
-        $skilldiv1.css("margin", "0 auto");
-        $skilldiv1.css("position", "absolute");
-        $skilldiv1.css("top", "0");
-        $skilldiv1.css("left", "0");
-        $skilldiv1.css("padding", "10px 0");
+      var mySequence = [
+        {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
+        {e:$skilldiv1, p:{height:"0px"}, o:{duration:500}},
+        {e:$skilldiv3, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+        {e:$skilldiv4, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+        {e:$skilldiv2, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}}
+      ];
 
-        $skilldiv2.css("margin", "0 auto");
-        $skilldiv2.css("position", "absolute");
-        $skilldiv2.css("top", "0");
-        $skilldiv2.css("left", "0");
-        $skilldiv2.css("padding", "10px 0");
-
-        $skilldiv3.css("margin", "0 auto");
-        $skilldiv3.css("position", "absolute");
-        $skilldiv3.css("top", "0");
-        $skilldiv3.css("left", "0");
-        $skilldiv3.css("padding", "10px 0");
-
-        $skilldiv4.css("margin", "0 auto");
-        $skilldiv4.css("position", "absolute");
-        $skilldiv4.css("top", "0");
-        $skilldiv4.css("left", "0");
-        $skilldiv4.css("padding", "10px 0");
-
-        $skilldiv2.css("backgroundColor", "red");
-
-        $skilldiv2.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
-                       .velocity({width: "100%", height: "300px", opacity: 1});
+      $.Velocity.RunSequence(mySequence);
 
 
     });
 
     $(".skill3button").click(function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        var $skillbox = $('.boxforskills');
-        var $skilldiv1 = $('.skilldiv1');
-        var $skilldiv2 = $('.skilldiv1');
-        var $skilldiv3= $('.skilldiv1');
-        var $skilldiv4 = $('.skilldiv1');
+      e.preventDefault();
+      e.stopPropagation();
+      var $skillbox = $('.boxforskills');
 
+      var $skilldiv1 = $('.skilldiv1');
+      var $skilldiv2 = $('.skilldiv2');
+      var $skilldiv3= $('.skilldiv3');
+      var $skilldiv4 = $('.skilldiv4');
+      var $skilldiv4container = $('.skilldiv4container');
 
-        $skillbox.css("padding", "30px 0");
-        $skillbox.css("position", "relative");
+      $skilldiv4container.css("height", "0px");
 
+      $skilldiv1.css("z-index", "10");
+      $skilldiv2.css("z-index", "10");
+      $skilldiv3.css("z-index", "20");
+      $skilldiv4.css("z-index", "10");
 
-        $skilldiv1.css("margin", "0 auto");
-        $skilldiv1.css("position", "absolute");
-        $skilldiv1.css("top", "0");
-        $skilldiv1.css("left", "0");
-        $skilldiv1.css("padding", "10px 0");
+      var mySequence = [
+        {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
+        {e:$skilldiv1, p:{height:"0px"}, o:{duration:500}},
+        {e:$skilldiv2, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+        {e:$skilldiv4, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+        {e:$skilldiv3, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}}
+      ];
 
-        $skilldiv2.css("margin", "0 auto");
-        $skilldiv2.css("position", "absolute");
-        $skilldiv2.css("top", "0");
-        $skilldiv2.css("left", "0");
-        $skilldiv2.css("padding", "10px 0");
-
-        $skilldiv3.css("margin", "0 auto");
-        $skilldiv3.css("position", "absolute");
-        $skilldiv3.css("top", "0");
-        $skilldiv3.css("left", "0");
-        $skilldiv3.css("padding", "10px 0");
-
-        $skilldiv4.css("margin", "0 auto");
-        $skilldiv4.css("position", "absolute");
-        $skilldiv4.css("top", "0");
-        $skilldiv4.css("left", "0");
-        $skilldiv4.css("padding", "10px 0");
-
-        $skilldiv4.css("backgroundColor", "blue");
-
-        $skilldiv3.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
-                       .velocity({width: "100%", height: "300px", opacity: 1});
-
+      $.Velocity.RunSequence(mySequence);
 
     });
 
     $(".skill4button").click(function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        var $skillbox = $('.boxforskills');
-        var $skilldiv1 = $('.skilldiv1');
-        var $skilldiv2 = $('.skilldiv1');
-        var $skilldiv3= $('.skilldiv1');
-        var $skilldiv4 = $('.skilldiv1');
+      e.preventDefault();
+      e.stopPropagation();
+      var $skillbox = $('.boxforskills');
 
+      var $skilldiv1 = $('.skilldiv1');
+      var $skilldiv2 = $('.skilldiv2');
+      var $skilldiv3= $('.skilldiv3');
+      var $skilldiv4 = $('.skilldiv4');
+      var $skilldiv4container = $('.skilldiv4container');
 
-        $skillbox.css("padding", "30px 0");
-        $skillbox.css("position", "relative");
+      $skilldiv4container.css("height", "0px");
 
-        $skilldiv1.css("margin", "0 auto");
-        $skilldiv1.css("position", "absolute");
-        $skilldiv1.css("top", "0");
-        $skilldiv1.css("left", "0");
-        $skilldiv1.css("padding", "10px 0");
+      $skilldiv1.css("z-index", "10");
+      $skilldiv2.css("z-index", "10");
+      $skilldiv3.css("z-index", "10");
+      $skilldiv4.css("z-index", "20");
 
-        $skilldiv2.css("margin", "0 auto");
-        $skilldiv2.css("position", "absolute");
-        $skilldiv2.css("top", "0");
-        $skilldiv2.css("left", "0");
-        $skilldiv2.css("padding", "10px 0");
+      var mySequence = [
+        {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
+        {e:$skilldiv1, p:{height:"0px"}, o:{duration:500}},
+        {e:$skilldiv2, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+        {e:$skilldiv3, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
+        {e:$skilldiv4, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}},
+        {e:$skilldiv4container, p:{height: "300px"}, o:{duration:0}}
+      ];
 
-        $skilldiv3.css("margin", "0 auto");
-        $skilldiv3.css("position", "absolute");
-        $skilldiv3.css("top", "0");
-        $skilldiv3.css("left", "0");
-        $skilldiv3.css("padding", "10px 0");
-
-        $skilldiv4.css("margin", "0 auto");
-        $skilldiv4.css("position", "absolute");
-        $skilldiv4.css("top", "0");
-        $skilldiv4.css("left", "0");
-        $skilldiv4.css("padding", "10px 0");
-
-        $skilldiv4.css("backgroundColor", "green");
-
-        $skilldiv4.velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'})
-                       .velocity({width: "100%", height: "300px", opacity: 1});
-
+      $.Velocity.RunSequence(mySequence);
 
     });
 
 
 
+    var portfolioitem1clicked = false;
+    var portfolioimage1size = "0px";
+
+    $(".portfolioitem1").on("click",function(){
+      $portfolioitem1image = $(".portfolioitem1image");
+      $portfolioitem1info = $(".portfolioitem1info");
+      $portfolioitem1infosub = $(".portfolioitem1infosub");
+      $portfolioitem1infosubtext = $('.portfolioitem1infosubtext');
+      $portfolioitem1infosubtextptag = $('.portfolioitem1infosubtextptag');
+
+      console.log(portfolioimage1size);
+
+      if (portfolioitem1clicked===false){
+
+        portfolioimage1size = $portfolioitem1image.css("height").toString();
+        $portfolioitem1infosubtext.css("marginLeft", "30%");
+        $portfolioitem1infosubtext.css("marginTop", "3%");
+        $portfolioitem1infosubtext.css("opacity", "0%");
+        $portfolioitem1infosubtextptag.css("opacity", "0%");
+        $portfolioitem1infosubtextptag.css("fontSize", "30px");
 
 
-    // var mySequence = [
-    //   {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "320px"}, o:{duration: 1500}},
-    //   {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
-    //   {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
-    //   {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}}
-    // ];
-    //
-    // $.Velocity.RunSequence(mySequence);
+
+
+        var mySequence = [
+          {e:$portfolioitem1infosubtextptag, p:{opacity: 0}, o:{duration: 0}},
+          {e:$portfolioitem1image, p:{height:"500px"}, o:{duration: 800}},
+          {e:$portfolioitem1image, p:{opacity: 0}, o:{duration: 500, sequenceQueue: false}},
+          {e:$portfolioitem1image, p:{height: "0px"}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem1info, p:{opacity: 1}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem1info, p:{height: "500px"}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem1infosub, p:{marginBottom: "2%", marginLeft: "10%", marginTop: "2.57%"}, o:{duration: 0}},
+          {e:$portfolioitem1infosub, p:{opacity: 1, height: "100px", width: "100px"}, o:{duration: 800}},
+          {e:$portfolioitem1infosubtext, p:{opacity: 1, height: "400px", width: "600px"}, o:{duration: 800}},
+          {e:$portfolioitem1infosubtextptag, p:{opacity: 1}, o:{duration: 800}}
+        ];
+
+        $.Velocity.RunSequence(mySequence);
+
+        portfolioitem1clicked=true;
+
+      } else if (portfolioitem1clicked===true){
+
+        $portfolioitem1infosub.css("opacity", "0");
+        $portfolioitem1infosub.css("height", "0px");
+        $portfolioitem1infosub.css("width", "0px");
+        $portfolioitem1infosub.css("marginBottom", "0%");
+        $portfolioitem1infosub.css("marginTop", "0%");
+        $portfolioitem1infosubtext.css("opacity", "0%");
+        $portfolioitem1infosubtext.css("height", "0px");
+        $portfolioitem1infosubtext.css("width", "0px");
+        $portfolioitem1infosubtextptag.css("opacity", "0%");
+        $portfolioitem1infosubtextptag.css("fontSize", "0px");
+
+
+        var mySequence = [
+          {e:$portfolioitem1info, p:{opacity: 0}, o:{duration: 500, sequenceQueue: false}},
+          {e:$portfolioitem1info, p:{height: "0px"}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem1image, p:{height: portfolioimage1size}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem1image, p:{opacity: 1}, o:{duration: 800, sequenceQueue: false}}
+        ];
+
+        $.Velocity.RunSequence(mySequence);
+
+        portfolioitem1clicked=false;
+
+      }
+
+
+    })
+
+
+
+
+    var portfolioitem2clicked = false;
+    var portfolioimage2size = "0px";
+
+    $(".portfolioitem2").on("click",function(){
+      $portfolioitem2image = $(".portfolioitem2image");
+      $portfolioitem2info = $(".portfolioitem2info");
+      $portfolioitem2infosub = $(".portfolioitem2infosub");
+      $portfolioitem2infosubtext = $('.portfolioitem2infosubtext');
+      $portfolioitem2infosubtextptag = $('.portfolioitem2infosubtextptag');
+
+
+      if (portfolioitem2clicked===false){
+
+        portfolioimage2size = $portfolioitem2image.css("height").toString();
+        $portfolioitem2infosubtext.css("marginLeft", "30%");
+        $portfolioitem2infosubtext.css("marginTop", "3%");
+        $portfolioitem2infosubtext.css("opacity", "0%");
+        $portfolioitem2infosubtextptag.css("opacity", "0%");
+        $portfolioitem2infosubtextptag.css("fontSize", "30px");
+
+
+
+
+        var mySequence = [
+          {e:$portfolioitem2infosubtextptag, p:{opacity: 0}, o:{duration: 0}},
+          {e:$portfolioitem2image, p:{height:"500px"}, o:{duration: 800}},
+          {e:$portfolioitem2image, p:{opacity: 0}, o:{duration: 500, sequenceQueue: false}},
+          {e:$portfolioitem2image, p:{height: "0px"}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem2info, p:{opacity: 1}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem2info, p:{height: "500px"}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem2infosub, p:{marginBottom: "2%", marginLeft: "10%", marginTop: "2.57%"}, o:{duration: 0}},
+          {e:$portfolioitem2infosub, p:{opacity: 1, height: "100px", width: "100px"}, o:{duration: 800}},
+          {e:$portfolioitem2infosubtext, p:{opacity: 1, height: "400px", width: "600px"}, o:{duration: 800}},
+          {e:$portfolioitem2infosubtextptag, p:{opacity: 1}, o:{duration: 800}}
+        ];
+
+        $.Velocity.RunSequence(mySequence);
+
+        portfolioitem2clicked=true;
+
+      } else if (portfolioitem2clicked===true){
+
+        $portfolioitem2infosub.css("opacity", "0");
+        $portfolioitem2infosub.css("height", "0px");
+        $portfolioitem2infosub.css("width", "0px");
+        $portfolioitem2infosub.css("marginBottom", "0%");
+        $portfolioitem2infosub.css("marginTop", "0%");
+        $portfolioitem2infosubtext.css("opacity", "0%");
+        $portfolioitem2infosubtext.css("height", "0px");
+        $portfolioitem2infosubtext.css("width", "0px");
+        $portfolioitem2infosubtextptag.css("opacity", "0%");
+        $portfolioitem2infosubtextptag.css("fontSize", "0px");
+
+
+        var mySequence = [
+          {e:$portfolioitem2info, p:{opacity: 0}, o:{duration: 500, sequenceQueue: false}},
+          {e:$portfolioitem2info, p:{height: "0px"}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem2image, p:{height: portfolioimage1size}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem2image, p:{opacity: 1}, o:{duration: 800, sequenceQueue: false}}
+        ];
+
+        $.Velocity.RunSequence(mySequence);
+
+        portfolioitem2clicked=false;
+
+      }
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $(".headerbutton").on("click", function(){
 
 
@@ -434,19 +526,7 @@ $( document ).ready(function() {
       $(this).ekkoLightbox();
     });
 
-    var message = "";
-    $(".onsubmit").on("click", function() {
-        message1="So there's this guy " + $('form [name="form-name-input"]').val() + " says to me from " + $('form [name="form-email-input"]').val()+
-                      " he says " + $('form [name="form-subject-input"]').val();
-        $.ajax({
-            url: "//formspree.io/pweyand@gmail.com",
-            method: "POST",
-            data: {message: message1},
-            dataType: "json"
-        });
-        alert('Thanks for the email, we\'ll be in touch promptly.');
-        return false;
-    });
+
 
 
   //  var $fadeIn1 = $('.fadeIn1');
