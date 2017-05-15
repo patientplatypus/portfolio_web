@@ -5,23 +5,27 @@ console.log('sanity check');
 $( document ).ready(function() {
     console.log( "ready!" );
 
+
+    var userid = Date.now();
+    localStorage.setItem("uniquecatid", userid);
+    console.log("unique catid is ", localStorage.getItem('uniquecatid'));
+
+
     $(".portfolio-button h4").click(function(e){
         e.preventDefault();
-        $("#portfolio").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
-
-
+        $("#portfolio").velocity("scroll", {duration: 1000, offset: -200, easing: 'ease-in-out'});
 
     });
 
     $(".travel-button h4").click(function(e){
         e.preventDefault();
-        $(".traveltop").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
+        $(".traveltop").velocity("scroll", {duration: 1000, offset: -200, easing: 'ease-in-out'});
 
     });
 
     $(".about-button h4").click(function(e){
         e.preventDefault();
-        $("#about").velocity("scroll", {duration: 500, offset: -200, easing: 'ease-in-out'});
+        $(".header").velocity("scroll", {duration: 1000, offset:0, easing: 'ease-in-out'});
 
 
     });
@@ -53,6 +57,206 @@ $( document ).ready(function() {
         return false;
     });
 
+
+
+
+//http://thecatapi.com/api/images/get?format=xml&results_per_page=20
+//MTgzNDc2
+
+
+
+
+
+
+
+    $.ajax({
+      url: "http://thecatapi.com/api/images/get?format=xml&size=small&results_per_page=1",
+      method: "GET"
+    }).done(function(response){
+      console.log(response);
+
+      // var xmlDoc = $.parseXML(response),
+      // $xml = $(xmlDoc);
+      var $layout = $(response).find('url');
+      var $imgsrc = $layout.html();
+
+      console.log($imgsrc);
+
+
+      console.log($imgsrc.toString().slice(10,$imgsrc.length));
+      $cleanedimg = "http://"+$imgsrc.toString().slice(10,$imgsrc.length);
+      console.log('cleanedimg ', $cleanedimg);
+      $('.initialcat').prepend("<img class='catpictures containedskillelement' src='"+$cleanedimg+"'>");
+
+
+
+      // $('.initialcat').prepend("<img class='catpictures containedskillelement' src='"+$imgsrc+"'>");
+
+    }).fail(function(){
+      console.log("call to thecatapi failed");
+    })
+
+
+
+
+    $('.getcatimage').on("click", function(){
+      var $catlist = $('select[name=catlist]').val();
+      console.log($catlist);
+
+      if($catlist!='category'){
+        $.ajax({
+          url: "http://thecatapi.com/api/images/get?format=xml&size=small&results_per_page=1&category="+$catlist,
+          method: "GET"
+        }).done(function(response){
+          console.log(response);
+
+          // var xmlDoc = $.parseXML(response),
+          // $xml = $(xmlDoc);
+          var $layout = $(response).find('url');
+          var $imgsrc = $layout.html();
+
+          console.log($imgsrc);
+            //           var str = "Hello world!";
+            // var res = str.slice(1, 5);
+
+          console.log($imgsrc.toString().slice(10,$imgsrc.length));
+          $cleanedimg = "http://"+$imgsrc.toString().slice(10,$imgsrc.length);
+          console.log('cleanedimg ', $cleanedimg);
+          $('.secondcat').html("<img class='catpictures containedskillelement' src='"+$cleanedimg+"'>");
+
+        }).fail(function(){
+          console.log("call to thecatapi failed");
+        })
+      }
+    });
+
+
+    // $.ajax({
+    //   url: "http://localhost:3000/",
+    //   method: "POST",
+    //   data:{pirate: 32,
+    //         ninja: 12}
+    // }).done(function(response){
+    //   console.log(response);
+    // }).fail(function(){
+    //   console.log("call to backend failed");
+    // })
+
+
+    var fightvoted = false;
+
+
+    $('.piratebutton').on('click', function(){
+      if (fightvoted===false){
+        $.ajax({
+          url: "http://localhost:3000/pirate",
+          method: "PATCH",
+          data:{add: 1}
+        }).done(function(response){
+          console.log(response);
+          var ninjawins = response.updated_fight.ninja;
+          var piratewins = response.updated_fight.pirate;
+          var totalfights = ninjawins+piratewins;
+          var ninjawinpercent = 100*ninjawins/totalfights;
+          var piratewinpercent = 100*piratewins/totalfights;
+
+          if(piratewins>=ninjawins){
+            $('.fightresults').append('<h3>Pirate wins button was clicked '+Math.floor(piratewinpercent)+' percent of the time by visitors to my portfolio</h3>');
+            $('.fightresults').append('<h4>You picked the winner. Good job!</h4>');
+            $('.characterimage').html('<img src="'+'http://mythicjourneystravel.com/wp-content/themes/voyage/images/pirates/carribean_sm6.jpg'+'"  style="width:200px; height:auto;">');
+          }else if (ninjawins>piratewins){
+            $('.fightresults').append('<h3>Pirate wins button was clicked '+Math.floor(piratewinpercent)+' percent of the time by visitors to my portfolio</h3>');
+            $('.fightresults').append('<h4>You picked the loser. You suck!</h4>');
+            $('.characterimage').html('<img src="'+'../assets/bunnytouched.jpg'+'"  style="width:200px; height:auto;">');
+          }
+        }).fail(function(){
+          console.log("call to piratepatch failed");
+        })
+        fightvoted = true;
+      }
+    });
+
+//https://s-media-cache-ak0.pinimg.com/736x/38/c6/62/38c662a67818d96d7e009ab1a725614d.jpg
+
+    $('.ninjabutton').on('click', function(){
+      if (fightvoted===false){
+        $.ajax({
+          url: "http://localhost:3000/ninja",
+          method: "PATCH",
+          data:{add: 1}
+        }).done(function(response){
+          console.log(response);
+          var ninjawins = response.updated_fight.ninja;
+          var piratewins = response.updated_fight.pirate;
+          var totalfights = ninjawins+piratewins;
+          var ninjawinpercent = 100*ninjawins/totalfights;
+          var piratewinpercent = 100*piratewins/totalfights;
+
+          if(ninjawins>=piratewins){
+            $('.fightresults').append('<h3>Ninja wins button was clicked '+Math.floor(ninjawinpercent)+' percent of the time by visitors to my portfolio</h3>');
+            $('.fightresults').append('<h4>You picked the winner. Good job!</h4>');
+            $('.characterimage').html('<img src="'+'http://muza-chan.net/gallery/dynamic/fbimg/200-sq-ninja-day-toei-uzumasa-eigamura-kyoto.jpg'+'"  style="width:200px; height:auto;">');
+          }else if (piratewins>ninjawins){
+            $('.fightresults').append('<h3>Ninja wins button was clicked '+Math.floor(ninjawinpercent)+' percent of the time by visitors to my portfolio</h3>');
+            $('.fightresults').append('<h4>You picked the loser. You suck!</h4>');
+            $('.characterimage').html('<img src="'+'../assets/bunnytouched.jpg'+'" style="width:200px; height:auto;">');
+          }
+
+        }).fail(function(){
+          console.log("call to ninjapatch failed");
+        })
+        fightvoted = true;
+      }
+    });
+
+
+
+
+
+
+      $.ajax({
+        type: 'GET',
+        url: 'https://ipapi.co/json/'
+      }).done(function(response) {
+        // api key for open weather 42dc18f7717b7983a4444adc664fe9c9
+
+        console.log(response);
+        var url='http://api.openweathermap.org/data/2.5/weather?lat='+response.latitude+'&lon='+response.longitude+'&appid=42dc18f7717b7983a4444adc664fe9c9';
+        $.ajax({
+          url: url
+        }).done(function(response){
+          console.log(response)
+        }).fail(function(response){
+          console.log('weather failed');
+        });
+
+        console.log(response);
+        var url='https://api.sunrise-sunset.org/json?lat='+response.latitude+'&lng='+response.longitude+'&date=today&formatted=0'
+        $.ajax({
+          url:url
+        }).done(function(response){
+          console.log(response);
+          console.log("sunrise parsed ", Date.parse(response.sunrise));
+          console.log("sunset parsed ")
+        }).fail(function(response){
+          console.log('sunrise failed');
+        })
+
+      }).fail(function() {
+        console.log('Please try again later');
+      });
+
+      console.log('the time is ', Date.now());
+      var now = new Date(),
+      then = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate(),
+          0,0,0),
+      diff = now.getTime() - then.getTime();
+      console.log(diff);
+
+
     $(".skill1button").click(function(e){
         e.preventDefault();
         e.stopPropagation();
@@ -62,9 +266,18 @@ $( document ).ready(function() {
         var $skilldiv2 = $('.skilldiv2');
         var $skilldiv3= $('.skilldiv3');
         var $skilldiv4 = $('.skilldiv4');
-        var $skilldiv4container = $('.skilldiv4container');
 
+        var $skilldiv4container = $('.skilldiv4container');
         $skilldiv4container.css("height", "0px");
+
+        var $skilldiv3container = $('.skilldiv3container');
+        $skilldiv3container.css("height", "0px");
+
+        var $skilldiv2container = $('.skilldiv2container');
+        $skilldiv2container.css("height", "0px");
+
+        var $skilldiv1container = $('.skilldiv1container');
+        $skilldiv1container.css("height", "0px");
 
         $skilldiv1.css("z-index", "20");
         $skilldiv2.css("z-index", "10");
@@ -76,7 +289,8 @@ $( document ).ready(function() {
           {e:$skilldiv2, p:{height:"0px"}, o:{duration:500}},
           {e:$skilldiv3, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
           {e:$skilldiv4, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
-          {e:$skilldiv1, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}}
+          {e:$skilldiv1, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}},
+          {e:$skilldiv1container, p:{height: "300px"}, o:{duration:0}}
         ];
 
         $.Velocity.RunSequence(mySequence);
@@ -92,9 +306,19 @@ $( document ).ready(function() {
       var $skilldiv2 = $('.skilldiv2');
       var $skilldiv3= $('.skilldiv3');
       var $skilldiv4 = $('.skilldiv4');
-      var $skilldiv4container = $('.skilldiv4container');
 
+      var $skilldiv4container = $('.skilldiv4container');
       $skilldiv4container.css("height", "0px");
+
+      var $skilldiv3container = $('.skilldiv3container');
+      $skilldiv3container.css("height", "0px");
+
+      var $skilldiv2container = $('.skilldiv2container');
+      $skilldiv2container.css("height", "0px");
+
+      var $skilldiv1container = $('.skilldiv1container');
+      $skilldiv1container.css("height", "0px");
+
 
       $skilldiv1.css("z-index", "10");
       $skilldiv2.css("z-index", "20");
@@ -106,7 +330,8 @@ $( document ).ready(function() {
         {e:$skilldiv1, p:{height:"0px"}, o:{duration:500}},
         {e:$skilldiv3, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
         {e:$skilldiv4, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
-        {e:$skilldiv2, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}}
+        {e:$skilldiv2, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}},
+        {e:$skilldiv2container, p:{height: "300px"}, o:{duration:0}}
       ];
 
       $.Velocity.RunSequence(mySequence);
@@ -123,9 +348,19 @@ $( document ).ready(function() {
       var $skilldiv2 = $('.skilldiv2');
       var $skilldiv3= $('.skilldiv3');
       var $skilldiv4 = $('.skilldiv4');
-      var $skilldiv4container = $('.skilldiv4container');
 
+      var $skilldiv4container = $('.skilldiv4container');
       $skilldiv4container.css("height", "0px");
+
+      var $skilldiv3container = $('.skilldiv3container');
+      $skilldiv3container.css("height", "0px");
+
+      var $skilldiv2container = $('.skilldiv2container');
+      $skilldiv2container.css("height", "0px");
+
+      var $skilldiv1container = $('.skilldiv1container');
+      $skilldiv1container.css("height", "0px");
+
 
       $skilldiv1.css("z-index", "10");
       $skilldiv2.css("z-index", "10");
@@ -137,7 +372,8 @@ $( document ).ready(function() {
         {e:$skilldiv1, p:{height:"0px"}, o:{duration:500}},
         {e:$skilldiv2, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
         {e:$skilldiv4, p:{height:"0px"}, o:{duration:500, sequenceQueue: false}},
-        {e:$skilldiv3, p:{paddingLeft: "5%", width: "100%", height: "300px", top:"0px", opacity: 1}}
+        {e:$skilldiv3, p:{paddingLeft: "0%", width: "100%", height: "300px", top:"0px", opacity: 1}},
+        {e:$skilldiv3container, p:{height: "300px"}, o:{duration:0}}
       ];
 
       $.Velocity.RunSequence(mySequence);
@@ -153,9 +389,19 @@ $( document ).ready(function() {
       var $skilldiv2 = $('.skilldiv2');
       var $skilldiv3= $('.skilldiv3');
       var $skilldiv4 = $('.skilldiv4');
-      var $skilldiv4container = $('.skilldiv4container');
 
+      var $skilldiv4container = $('.skilldiv4container');
       $skilldiv4container.css("height", "0px");
+
+      var $skilldiv3container = $('.skilldiv3container');
+      $skilldiv3container.css("height", "0px");
+
+      var $skilldiv2container = $('.skilldiv2container');
+      $skilldiv2container.css("height", "0px");
+
+      var $skilldiv1container = $('.skilldiv1container');
+      $skilldiv1container.css("height", "0px");
+
 
       $skilldiv1.css("z-index", "10");
       $skilldiv2.css("z-index", "10");
@@ -354,31 +600,40 @@ $( document ).ready(function() {
       var $fadeIn1text = $('.fadeIn1text');
       var $fadeIn2text = $('.fadeIn2text');
       var $fadeIn3text = $('.fadeIn3text');
+      var $profileimage = $('.profileimage');
 
       $fadeIn1.css("height", "0px");
       $fadeIn1.css("width", "0px");
-      $fadeIn1.css("top", "450px");
-
+      $fadeIn1.css("top", "500px");
+      // $fadein.css('top', '25%');
 
       $fadeIn2.css("height", "100px");
       $fadeIn2.css("width", "100px");
-      $fadeIn2.css("top", "480px");
+      $fadeIn2.css("top", "535px");
+      // $fadein2.css("top", "30%")
+
       $fadeIn2.css("left", "3%");
       $fadeIn2.css("background-color", "orange")
 
       $fadeIn3.css("height", "100px");
       $fadeIn3.css("width", "100px");
-      $fadeIn3.css("top", "480px");
+      $fadeIn3.css("top", "535px");
+      // $fadeIn3.css("top", "30%");
+
       $fadeIn3.css("left", "30%");
       $fadeIn3.css("background-color", "red");
 
       $fadeIn2text.css("opacity", "0");
+      $fadeIn3text.css('opacity', '0');
+      $profileimage.css("margin", "0 auto");
 
       var mySequence = [
         {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "320px"}, o:{duration: 1500}},
         {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
         {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
-        {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}}
+        {e:$profileimage, p:{"margin": "0 auto"}, o:{duration:0}},
+        {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}},
+        {e:$fadeIn3text, p:{opacity:[1,0]}, o:{duration: 2000, sequenceQueue: false}}
       ];
 
       $.Velocity.RunSequence(mySequence);

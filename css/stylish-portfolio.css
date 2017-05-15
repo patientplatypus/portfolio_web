@@ -224,7 +224,7 @@ li h4{
     padding-left: 3%;
 }
 
-.fadeIn1, .fadeIn2, .fadeIn3{
+.fadeIn1, .fadeIn3{
   height: 1px;
   width: 1px;
   top: 1px;
@@ -237,8 +237,59 @@ li h4{
   opacity: 0;
 }
 
+.fadeIn2{
+  height: 1px;
+  width: 1px;
+  top: 1px;
+  left: 1px;
+  background-color: black;
+  z-index: 10;
+  position:absolute;
+  /*display: none;*/
+  margin: 0 auto;
+  opacity: 0;
+}
+
+
 .fadeIn1text, .fadeIn2text, .fadeIn3text{
   opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.fadeIn2text{
+  text-align: center;
+}
+
+.fadeIn3text{
+  text-align: left;
+  font-size: 1.8vh;
+  font-weight: bolder;
+  padding-top: 2%;
+  /*position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);*/
+}
+
+.fadeIn3text p{
+  margin: 0;
+}
+
+.profileimage{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 100%;
+  margin: auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 
@@ -321,7 +372,7 @@ li h4{
 .portfolioitem1infosubtext{
   height: 0px;
   opacity: 0px;
-  background-color: blue;
+  background-color: #7EA0B7;
   float: right;
   position: absolute;
 }
@@ -330,11 +381,6 @@ li h4{
   opacity: 0;
   font-size: 0px;
 }
-
-
-
-
-
 
 .portfolioitem2info{
   margin: 0 auto;
@@ -364,7 +410,7 @@ li h4{
 .portfolioitem2infosubtext{
   height: 0px;
   opacity: 0px;
-  background-color: blue;
+  background-color: #7EA0B7;
   float: right;
   position: absolute;
 }
@@ -393,10 +439,15 @@ li h4{
 /* skill divs*/
 
 .boxforskills{
+  /*margin: 0 auto;*/
   padding: 0;
   position: relative;
   background-color: #333;;
   height: 300px;
+}
+
+.row{
+  text-align: center;
 }
 
 .skilldiv1 .skilldiv2 .skilldiv3 .skilldiv4 {
@@ -436,10 +487,71 @@ li h4{
     text-align: center;
 }
 
-.skilldiv4container .skilldiv3container .skilldiv2container .skilldiv1container{
+.skilldiv4container, .skilldiv3container, .skilldiv2container, .skilldiv1container{
   height: 0px;
   overflow:auto;
 }
+
+
+.skill1button, .skill2button, .skill3button{
+  /*color: black;
+  vertical-align: middle;*/
+  padding-top: 2.5%;
+  padding-bottom: 0%;
+  margin: 0;
+  line-height: 10px;
+}
+
+/*.catcontainer{
+  height:100%;
+}*/
+
+/*.platypusicon{
+  width: 50px;
+  height:auto;
+}*/
+
+
+.catexplanation{
+  height: 100%;
+  text-align: center;
+  font-size: 2vh;
+  position: relative;
+  font-weight: bolder;
+  /*top: 50%;*/
+  /*-webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);*/
+}
+
+.initialcat{
+  width: 260px;
+  height: auto;
+}
+
+.secondcategories{
+  bottom: 0;
+}
+
+.characterimage{
+  /*float: right;
+  margin-right: 5%*/
+  /*text-align: center;*/
+  float: left;
+  padding-left:36.5%;
+  margin: auto;
+  /*width:200px;*/
+  height: 0px;
+  width: 0px;
+  border-style: solid;
+  border-width: 0px;
+  border-color: black;
+}
+
+/*.containedskillelement{
+  max-width: 100%;
+  max-height: 100%;
+}*/
 
 
 
@@ -648,6 +760,8 @@ input:focus, textarea:focus {
   font-weight:700;
 }
 
+
+
 #button-blue:hover{
 	background-color: rgba(0,0,0,0);
 	color: #0493bd;
@@ -692,8 +806,13 @@ input:focus, textarea:focus {
   margin: 0 auto;
   padding-left: 40%;
   padding-top: 3%;
+  /*width: 100px;*/
 }
 
+.platypusicon{
+  max-width: 100%;
+  width: 150px;
+}
 
 .submit:hover {
 	color: #3498db;
