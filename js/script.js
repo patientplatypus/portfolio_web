@@ -155,11 +155,14 @@ $( document ).ready(function() {
 
     var fightvoted = false;
 
+//https://serene-bayou-19048.herokuapp.com/
+
+// http://localhost:3000/pirate
 
     $('.piratebutton').on('click', function(){
       if (fightvoted===false){
         $.ajax({
-          url: "http://localhost:3000/pirate",
+          url: "https://serene-bayou-19048.herokuapp.com/pirate",
           method: "PATCH",
           data:{add: 1}
         }).done(function(response){
@@ -191,7 +194,7 @@ $( document ).ready(function() {
     $('.ninjabutton').on('click', function(){
       if (fightvoted===false){
         $.ajax({
-          url: "http://localhost:3000/ninja",
+          url: "https://serene-bayou-19048.herokuapp.com/ninja",
           method: "PATCH",
           data:{add: 1}
         }).done(function(response){
@@ -745,16 +748,18 @@ $( document ).ready(function() {
     }
   });
 
+  // -13.790849, -71.232666
+
   gMap.addMarker({
-    lat: -13.421951,
-    lng: -71.850929,
-    title: 'Ruins Near Písac Peru',
+    lat: -13.790849,
+    lng: -71.232666,
+    title: 'Rainbow Mountain',
     infoWindow: {
       content:
       '<div id="map-marker">'+
-            '<a href="#" data-featherlight="#mylightbox"><img src="http://68.media.tumblr.com/2e183a5ad9c651c1b8a83d569b9978c9/tumblr_o87wj9YwfJ1rw1i3co1_250.jpg"></a>'+
-              '<div id="mylightbox"><img src="http://68.media.tumblr.com/2e183a5ad9c651c1b8a83d569b9978c9/tumblr_o87wj9YwfJ1rw1i3co1_1280.jpg"></div>'+
-              '<p>Ruins Near Písac Peru</p>'+
+            '<a href="#" data-featherlight="#mylightbox"><img src="http://68.media.tumblr.com/87a054d67ec0533fb006d398bf00d650/tumblr_o87wj9YwfJ1rw1i3co5_250.jpg"></a>'+
+              '<div id="mylightbox"><img src="http://68.media.tumblr.com/87a054d67ec0533fb006d398bf00d650/tumblr_o87wj9YwfJ1rw1i3co5_1280.jpg"></div>'+
+              '<p>Rainbow Mountain, Peru</p>'+
       '</div>'
     }
   });

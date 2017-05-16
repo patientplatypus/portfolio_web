@@ -505,6 +505,9 @@ li h4{
   overflow:auto;
 }
 
+.skilldiv2container{
+  font-family: "Oswald";
+}
 
 .skill1button, .skill2button, .skill3button{
   /*color: black;
@@ -527,10 +530,12 @@ li h4{
 
 .catexplanation{
   height: 100%;
-  text-align: center;
-  font-size: 1.8vh;
+  /*text-align: center;*/
+  font-size: 2.4vh;
   position: relative;
   font-weight: bolder;
+  text-align: justify;
+  font-family: "Oswald";
   /*top: 50%;*/
   /*-webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -548,12 +553,25 @@ li h4{
   margin: 0;*/
 }
 
-.getcatimage{
-  margin-top: 3%;
-}
 
 .secondcategories{
   bottom: 0;
+  width: 300px;
+}
+
+.getcatimage{
+  /*margin-top: 3%;*/
+  display: inline;
+  /*float:righ;*/
+  text-align: center;
+  width: 30px;
+  height: 30px;
+}
+
+.catlist{
+  margin-top: 3%;
+  padding-right: 0%;
+  width: 100px;
 }
 
 .characterimage{
