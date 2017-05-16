@@ -279,6 +279,7 @@ $( document ).ready(function() {
         var $skilldiv2 = $('.skilldiv2');
         var $skilldiv3= $('.skilldiv3');
         var $skilldiv4 = $('.skilldiv4');
+        var $skillexplanation = $('.skillexplanation');
 
         var $skilldiv4container = $('.skilldiv4container');
         $skilldiv4container.css("height", "0px");
@@ -296,6 +297,9 @@ $( document ).ready(function() {
         $skilldiv2.css("z-index", "10");
         $skilldiv3.css("z-index", "10");
         $skilldiv4.css("z-index", "10");
+        $skillexplanation.css('height', "0px");
+        $skillexplanation.css('font-size', '0px');
+        $skillexplanation.css('padding', '0px');
 
         var mySequence = [
           {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
@@ -319,6 +323,7 @@ $( document ).ready(function() {
       var $skilldiv2 = $('.skilldiv2');
       var $skilldiv3= $('.skilldiv3');
       var $skilldiv4 = $('.skilldiv4');
+      var $skillexplanation = $('.skillexplanation');
 
       var $skilldiv4container = $('.skilldiv4container');
       $skilldiv4container.css("height", "0px");
@@ -337,6 +342,9 @@ $( document ).ready(function() {
       $skilldiv2.css("z-index", "20");
       $skilldiv3.css("z-index", "10");
       $skilldiv4.css("z-index", "10");
+      $skillexplanation.css('height', "0px");
+      $skillexplanation.css('font-size', '0px');
+      $skillexplanation.css('padding', '0px');
 
       var mySequence = [
         {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
@@ -361,6 +369,7 @@ $( document ).ready(function() {
       var $skilldiv2 = $('.skilldiv2');
       var $skilldiv3= $('.skilldiv3');
       var $skilldiv4 = $('.skilldiv4');
+      var $skillexplanation = $('.skillexplanation');
 
       var $skilldiv4container = $('.skilldiv4container');
       $skilldiv4container.css("height", "0px");
@@ -379,6 +388,9 @@ $( document ).ready(function() {
       $skilldiv2.css("z-index", "10");
       $skilldiv3.css("z-index", "20");
       $skilldiv4.css("z-index", "10");
+      $skillexplanation.css('height', "0px");
+      $skillexplanation.css('font-size', '0px');
+      $skillexplanation.css('padding', '0px');
 
       var mySequence = [
         {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
@@ -402,6 +414,7 @@ $( document ).ready(function() {
       var $skilldiv2 = $('.skilldiv2');
       var $skilldiv3= $('.skilldiv3');
       var $skilldiv4 = $('.skilldiv4');
+      var $skillexplanation = $('.skillexplanation');
 
       var $skilldiv4container = $('.skilldiv4container');
       $skilldiv4container.css("height", "0px");
@@ -420,6 +433,9 @@ $( document ).ready(function() {
       $skilldiv2.css("z-index", "10");
       $skilldiv3.css("z-index", "10");
       $skilldiv4.css("z-index", "20");
+      $skillexplanation.css('height', "0px");
+      $skillexplanation.css('font-size', '0px');
+      $skillexplanation.css('padding', '0px');
 
       var mySequence = [
         {e:$skillbox, p:'scroll', o:{duration: 500, offset: -200, easing: 'ease-in-out'}},
@@ -455,7 +471,7 @@ $( document ).ready(function() {
         $portfolioitem1infosubtext.css("marginTop", "3%");
         $portfolioitem1infosubtext.css("opacity", "0%");
         $portfolioitem1infosubtextptag.css("opacity", "0%");
-        $portfolioitem1infosubtextptag.css("fontSize", "30px");
+        $portfolioitem1infosubtextptag.css("fontSize", "2.4vh");
 
 
 
@@ -470,6 +486,7 @@ $( document ).ready(function() {
           {e:$portfolioitem1infosub, p:{marginBottom: "2%", marginLeft: "10%", marginTop: "2.57%"}, o:{duration: 0}},
           {e:$portfolioitem1infosub, p:{opacity: 1, height: "100px", width: "100px"}, o:{duration: 800}},
           {e:$portfolioitem1infosubtext, p:{opacity: 1, height: "400px", width: "600px"}, o:{duration: 800}},
+          {e:$portfolioitem1infosubtext, p:{padding: "1%"}, o:{duration: 0}},
           {e:$portfolioitem1infosubtextptag, p:{opacity: 1}, o:{duration: 800}}
         ];
 
@@ -489,6 +506,7 @@ $( document ).ready(function() {
         $portfolioitem1infosubtext.css("width", "0px");
         $portfolioitem1infosubtextptag.css("opacity", "0%");
         $portfolioitem1infosubtextptag.css("fontSize", "0px");
+        $portfolioitem1infosubtext.css("padding", "0%");
 
 
         var mySequence = [
@@ -644,9 +662,9 @@ $( document ).ready(function() {
       $profileimage.css("margin", "0 auto");
 
       var mySequence = [
-        {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "320px"}, o:{duration: 1500}},
-        {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
-        {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "250px"}, o:{duration: 1500, sequenceQueue: false}},
+        {e:$fadeIn1, p:{translateX:["3%","100%"], opacity:[0.8,0], width: "94%", height: "260px"}, o:{duration: 1500}},
+        {e:$fadeIn2, p:{translateX:["3%","100%"], opacity:[0.9,0], width: "20%", height: "180px"}, o:{duration: 1500, sequenceQueue: false}},
+        {e:$fadeIn3, p:{translateY:["0%","100%"], opacity:[1,0], width: "66%", height: "180px"}, o:{duration: 1500, sequenceQueue: false}},
         {e:$profileimage, p:{"margin": "0 auto"}, o:{duration:0}},
         {e:$fadeIn2text, p:{opacity:[1,0]}, o:{duration: 1500}},
         {e:$fadeIn3text, p:{opacity:[1,0]}, o:{duration: 2000, sequenceQueue: false}}
