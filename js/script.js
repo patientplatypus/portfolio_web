@@ -54,6 +54,10 @@ $( document ).ready(function() {
 
         $submittedemail.velocity({height: "120px", opacity:"1"}, {duration: 1000, easing: 'ease-in-out'})
 
+        // setTimeout(function(){
+        //   $('#pdediv').append('<canvas class="pingpong" data-processing-sources="js/pingpong.pde"></canvas>');
+        // },1200)
+
         return false;
     });
 
@@ -96,7 +100,11 @@ $( document ).ready(function() {
       console.log("call to thecatapi failed");
     })
 
-
+    // $('button.ci').click(function() {
+    //     var i = $(this).attr('id').substring(1);
+    //     new Audio(baseUrl + audio[i-1]).play();
+    // });
+    // /http://soundbible.com/mp3/Kitten%20Meow-SoundBible.com-1295572573.mp3
 
 
     $('.getcatimage').on("click", function(){
@@ -109,6 +117,8 @@ $( document ).ready(function() {
           method: "GET"
         }).done(function(response){
           console.log(response);
+
+          new Audio('http://soundbible.com/mp3/Kitten%20Meow-SoundBible.com-1295572573.mp3').play();
 
           // var xmlDoc = $.parseXML(response),
           // $xml = $(xmlDoc);
@@ -515,7 +525,8 @@ $( document ).ready(function() {
         $portfolioitem2infosubtext.css("marginTop", "3%");
         $portfolioitem2infosubtext.css("opacity", "0%");
         $portfolioitem2infosubtextptag.css("opacity", "0%");
-        $portfolioitem2infosubtextptag.css("fontSize", "30px");
+        $portfolioitem2infosubtextptag.css("fontSize", "2.4vh");
+
 
 
 
@@ -530,6 +541,7 @@ $( document ).ready(function() {
           {e:$portfolioitem2infosub, p:{marginBottom: "2%", marginLeft: "10%", marginTop: "2.57%"}, o:{duration: 0}},
           {e:$portfolioitem2infosub, p:{opacity: 1, height: "100px", width: "100px"}, o:{duration: 800}},
           {e:$portfolioitem2infosubtext, p:{opacity: 1, height: "400px", width: "600px"}, o:{duration: 800}},
+          {e:$portfolioitem2infosubtext, p:{padding: "1%"}, o:{duration: 0}},
           {e:$portfolioitem2infosubtextptag, p:{opacity: 1}, o:{duration: 800}}
         ];
 
@@ -549,12 +561,13 @@ $( document ).ready(function() {
         $portfolioitem2infosubtext.css("width", "0px");
         $portfolioitem2infosubtextptag.css("opacity", "0%");
         $portfolioitem2infosubtextptag.css("fontSize", "0px");
+        $portfolioitem2infosubtext.css("padding", "0%");
 
 
         var mySequence = [
           {e:$portfolioitem2info, p:{opacity: 0}, o:{duration: 500, sequenceQueue: false}},
           {e:$portfolioitem2info, p:{height: "0px"}, o:{duration: 800, sequenceQueue: false}},
-          {e:$portfolioitem2image, p:{height: portfolioimage1size}, o:{duration: 800, sequenceQueue: false}},
+          {e:$portfolioitem2image, p:{height: portfolioimage2size}, o:{duration: 800, sequenceQueue: false}},
           {e:$portfolioitem2image, p:{opacity: 1}, o:{duration: 800, sequenceQueue: false}}
         ];
 
@@ -613,7 +626,7 @@ $( document ).ready(function() {
       // $fadein2.css("top", "30%")
 
       $fadeIn2.css("left", "3%");
-      $fadeIn2.css("background-color", "orange")
+      $fadeIn2.css("background-color", "#F4AC45")
 
       $fadeIn3.css("height", "100px");
       $fadeIn3.css("width", "100px");
@@ -621,7 +634,7 @@ $( document ).ready(function() {
       // $fadeIn3.css("top", "30%");
 
       $fadeIn3.css("left", "30%");
-      $fadeIn3.css("background-color", "red");
+      $fadeIn3.css("background-color", "#A61C3C");
 
       $fadeIn2text.css("opacity", "0");
       $fadeIn3text.css('opacity', '0');

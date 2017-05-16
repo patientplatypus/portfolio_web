@@ -10,7 +10,8 @@
     <meta name="author" content="">
 
     <title>Peter Weyand Portfolio</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Pacifico|Montserrat" rel="stylesheet">
+    <script type="text/javascript" src="/js/processing.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Pacifico|Montserrat|Oswald" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKSMaMwm7UTigL5sZGHS2VA0JUfghcSI4"></script>
 
     <script src="/js/gmaps.js"></script>
@@ -64,13 +65,13 @@
                       <!-- <li class="hidden">
                           <a href="#page-top"></a>
                       </li> -->
-                      <li class="page-scroll portfolio-button">
+                      <li class="headerbutton page-scroll portfolio-button">
                           <h4> Portfolio </h4>
                       </li>
-                      <li class="page-scroll about-button">
+                      <li class="headerbutton page-scroll about-button">
                           <h4> About </h4>
                       </li>
-                      <li class="page-scroll travel-button">
+                      <li class="headerbutton page-scroll travel-button">
                           <h4> Travel </h4>
                       </li>
                   </ul>
@@ -201,17 +202,20 @@
                                 <div class="row text-center">
 
                                   <!-- <div class=""> -->
-                                    <div class="col-lg-2 col-md-1 col-sm-4 col-centered nopadding initialcat"></div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-centered nopadding initialcat"></div>
                                   <!-- </div> -->
 
-                                  <div class="catcontainer col-lg-6 col-md-7 col-sm-4 col-centered">
+                                  <div class="catcontainer col-lg-6 col-md-4 col-sm-2 col-centered">
                                     <div class="catexplanation">
                                       <p>Here is an example of a call to a website called thecatapi.com, where you can get images of cats!</p>
-                                      <p>To the left is a random image of a cat, but I can also accept user input and get different kinds of cats.</p>
+                                      <br/>
+                                      <p>In the image to the left, I make an AjAX call to the database and request one random image of a cat.</p>
+                                      <br/>
+                                      <p>In the image to the right, I take input from you, the user, and request a random image that fits that category.</p>
                                     </div>
                                   </div>
 
-                                  <div class="col-lg-4 col-md-4 col-sm-4 col-centered">
+                                  <div class="col-lg-2 col-md-2 col-sm-2 col-centered">
 
                                     <div class="secondcategories">
                                       <select name='catlist'>
@@ -227,8 +231,8 @@
                                         <option value="sinks">cats in sinks</option>
                                         <option value="clothes">cats wearing clothes</option>
                                       </select>
-
-                                      <button class="getcatimage">Go get me a cat!</button>
+                                      <br/>
+                                      <button class="getcatimage"><i class="fa fa-paw" style="font-size:48px;" aria-hidden="true"></i></button>
                                     </div>
                                       </br>
                                       <div class="secondcat"></div>
@@ -318,19 +322,33 @@
                       <div class="portfolio-item">
                           <div class="portfolioitem2">
                           <!-- <a class="portfolioitem1" href="#"> -->
-                              <img class="portfolioitem2image img-portfolio img-responsive" src="img/portfolio-2.jpg">
+                              <img class="portfolioitem2image img-portfolio img-responsive" src="assets/fractalsmall.jpg">
                               <div class="portfolioitem2info">
-                                <img class="portfolioitem2infosub portfolioitem2infosub1" src="http://www.freepngimg.com/thumb/cow/1-cow-png-image-thumb.png">
+                                <img class="portfolioitem2infosub portfolioitem2infosub1" src="assets/pythonicon.png">
+
                                 <!-- <div class="portfolioitem1infosub portfolioitem1infosub1"> -->
 
                         <!-- <img src="http://www.freepngimg.com/thumb/cow/1-cow-png-image-thumb.png"><img src="http://www.freepngimg.com/thumb/cow/1-cow-png-image-thumb.png"> -->
                                 <!-- </div> -->
-                                <div class="portfolioitem2infosub portfolioitem1infosub2"></div>
-                                <div class="portfolioitem2infosub portfolioitem1infosub3"></div>
+                                <!-- <div class="portfolioitem2infosub portfolioitem1infosub2"></div> -->
+
+
+                                <!-- <div class="portfolioitem2infosub portfolioitem1infosub3"></div> -->
+
+                                  <!-- <img class="portfolioitem2infosub portfolioitem2infosub1" src="pythonicon.png"> -->
+
+                                    <img class="portfolioitem2infosub portfolioitem2infosub2" src="assets/processingicon.jpg">
+                                    <img class="portfolioitem2infosub portfolioitem2infosub3" src="assets/rusticon.png">
 
 
                                 <div class="portfolioitem2infosubtext">
-                                  <p class="portfolioitem2infosubtextptag"> hello there sailor </p>
+                                  <p class="portfolioitem2infosubtextptag"> I've made a couple small projects too. </p>
+                                  <p class="portfolioitem2infosubtextptag"> I made tic-tac-toe in Python 3 which you can check out <a href="https://repl.it/HzbX">here</a>.</p>
+                                  <p class="portfolioitem2infosubtextptag"> I made pong in processing-lang. See <a href="./pong.html">here</a>.</p>
+                                  <p class="portfolioitem2infosubtextptag"> And I've made a <a href="https://play.integer32.com/?gist=1cf6b353444e2cab17fbfccd3193d5ef&version=undefined">Towers of Hanoi solver</a> in Rust.</p>
+                                  <p class="portfolioitem2infosubtextptag"> I love playing around in languages. More to come!</p>
+                                  <!-- https://repl.it/HzbX -->
+                                  <!-- <A HREF="pages/about.html">About this site</A> -->
                                 </div>
 
                               </div>
@@ -431,7 +449,7 @@
                       </div>
                     </div>
 
-
+                      <!-- <canvas class="pingpong" data-processing-sources="js/pingpong.pde"></canvas> -->
 
                     <br>
                     <div class="listcontainer">
@@ -445,6 +463,7 @@
                       <p class="text-muted">ʕ ⊃･ ◡ ･ ʔ⊃    ε=ε=ε=┏(ﾟロﾟ;)┛</p>
                    </div>
 
+                    <!-- <div id='pdediv'></div> -->
 
                 </div>
             </div>
