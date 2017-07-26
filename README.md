@@ -34,7 +34,7 @@ Next came the skills demo.
 
 Here is the projects section where you can view projects that I've done.
 
-![Screenshot](/screenshots/projectsscreen.png?raw=true "Projects Screen")
+![Screenshot](/screenshots/projectssection.png?raw=true "Projects Screen")
 
 Here is the email screen.
 
