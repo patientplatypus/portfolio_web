@@ -1,6 +1,6 @@
 
 
-# Python Picture Swapper
+# First Portfolio Project
 
 ## Motivation
 
